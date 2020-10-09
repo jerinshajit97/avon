@@ -40,6 +40,7 @@ while [ $x != 0 ]
 		echo "1) SHOW AVAILABLE DOMAINS"
 		echo "2) RESULT OF A DOMAIN"
 		echo "3) OPEN ALL RESULTS"
+		echo "4) TAKEOVERS"
 		echo "0) EXIT"
 		echo "***Enter your choice***"
 		read choice
@@ -60,6 +61,10 @@ while [ $x != 0 ]
 		elif [ $choice -eq 3 ] # to show all result
 			then
 			open_all | less -r 
+
+		elif [ $choice -eq 4 ] # to show takeover
+			then
+			cat $ava/takeover.txt | less -r 
 		else
 			echo "Carefull AMIGO ! Wrong choice..."
 		fi
