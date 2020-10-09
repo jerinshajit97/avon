@@ -30,7 +30,9 @@ for domain in $(cat $1)
 
 		echo ==========================SUBDOMAIN BRUTEFORCING====================
 		amass enum -active -d $domain -brute -w output/$domain/wordlist/wordlist.txt >> output/$domain/subdomain/output.txt
-
+		
+		echo ==========================CHAOS=======================
+		chaos -d $domain -silent >> output/$domain/subdomain/output.txt
 	
 		echo "[+] Probing for alive domains..."
 		cat output/$domain/subdomain/output.txt | sort -u | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443' | sort -u > output/$domain/subdomain/alive.txt
