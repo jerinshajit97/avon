@@ -24,6 +24,9 @@ for domain in $(cat $1)
 
 		echo ===================================SUBFINDER================================
 		subfinder -d $domain  >> output/$domain/subdomain/output.txt
+
+		echo ==================================assetfinder======================================
+		assetfinder --subs-only $domain >> output/$domain/subdomain/output.txt
 		
 		echo ==================================Amass======================================
 		amass enum --passive -d $domain >> output/$domain/subdomain/output.txt
